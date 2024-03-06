@@ -5,13 +5,16 @@ import {
     Route,
     Link,
 } from "react-router-dom";
+
 import {
     ShopPage,
     ShopCartPage,
     NotFoundPage
 } from './pages/index'
-import NavBar from "./components/NavBar";
 
+import NavBar from "./components/NavBar";
+import {Provider} from "react-redux";
+import {store} from "./redux/store";
 const router = createBrowserRouter([
     {
         element: <NavBar/>,
@@ -30,7 +33,9 @@ const router = createBrowserRouter([
 
 function App() {
     return (
-        <RouterProvider router={router}/>
+        <Provider store={store}>
+            <RouterProvider router={router}/>
+        </Provider>
     );
 }
 

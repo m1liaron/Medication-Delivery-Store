@@ -15,7 +15,7 @@ const NavBar = () => {
                             <Link to={'/'}>Shop</Link>
                         </Nav.Link>
                         <Nav.Link>
-                            <Link to={'/cart'}>Shop</Link>
+                            <Link to={'/cart'}>Shopping cart</Link>
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

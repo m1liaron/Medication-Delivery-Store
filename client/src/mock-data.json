@@ -1,0 +1,69 @@
+{
+  "shops": [
+    {
+      "name": "Health Haven Pharmacy",
+      "location": "123 Main Street, Cityville",
+      "medications": [
+        {
+          "name": "Aspirin",
+          "price": 5.99,
+          "amount": 4
+        },
+        {
+          "name": "Ibuprofen",
+          "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcopia.titulae.es%2F%3Fs%3Daspirin-png-images-pngwing-gg-0odAEbcP&psig=AOvVaw0eO7wxzfQhAIVAiESLo-Ft&ust=1709840615436000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKimxOay4IQDFQAAAAAdAAAAABAY",
+          "price": 8.49,
+          "amount": 30
+        },
+        {
+          "name": "Cough Syrup",
+          "img": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcopia.titulae.es%2F%3Fs%3Daspirin-png-images-pngwing-gg-0odAEbcP&psig=AOvVaw0eO7wxzfQhAIVAiESLo-Ft&ust=1709840615436000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKimxOay4IQDFQAAAAAdAAAAABAY",
+          "price": 12.99,
+          "amount": 20
+        }
+      ]
+    },
+    {
+      "name": "Wellness Drugstore",
+      "location": "456 Elm Avenue, Townsville",
+      "medications": [
+        {
+          "name": "Paracetamol",
+          "price": 6.49,
+          "amount": 40
+        },
+        {
+          "name": "Antihistamine",
+          "price": 9.99,
+          "amount": 25
+        },
+        {
+          "name": "Throat Lozenges",
+          "price": 4.79,
+          "amount": 35
+        }
+      ]
+    },
+    {
+      "name": "MediMart Health Center",
+      "location": "789 Oak Road, Villageland",
+      "medications": [
+        {
+          "name": "Vitamin C Tablets",
+          "price": 7.29,
+          "amount": 45
+        },
+        {
+          "name": "Allergy Relief",
+          "price": 11.79,
+          "amount": 15
+        },
+        {
+          "name": "Digestive Enzymes",
+          "price": 14.99,
+          "amount": 10
+        }
+      ]
+    }
+  ]
+}

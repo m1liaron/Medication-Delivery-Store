@@ -1,0 +1,58 @@
+{
+  "shops": [
+    {
+      "name": "Health Haven Pharmacy",
+      "location": "123 Main Street, Cityville",
+      "medications": [
+        {
+          "name": "Aspirin",
+          "price": 5.99
+        },
+        {
+          "name": "Ibuprofen",
+          "price": 8.49
+        },
+        {
+          "name": "Cough Syrup",
+          "price": 12.99
+        }
+      ]
+    },
+    {
+      "name": "Wellness Drugstore",
+      "location": "456 Elm Avenue, Townsville",
+      "medications": [
+        {
+          "name": "Paracetamol",
+          "price": 6.49
+        },
+        {
+          "name": "Antihistamine",
+          "price": 9.99
+        },
+        {
+          "name": "Throat Lozenges",
+          "price": 4.79
+        }
+      ]
+    },
+    {
+      "name": "MediMart Health Center",
+      "location": "789 Oak Road, Villageland",
+      "medications": [
+        {
+          "name": "Vitamin C Tablets",
+          "price": 7.29
+        },
+        {
+          "name": "Allergy Relief",
+          "price": 11.79
+        },
+        {
+          "name": "Digestive Enzymes",
+          "price": 14.99
+        }
+      ]
+    }
+  ]
+}
