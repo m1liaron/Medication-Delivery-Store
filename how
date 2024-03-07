@@ -1,0 +1,27 @@
+[33mcommit 6382d8ea403f9b84a7889f1b3578e2ac239b336b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Vlad <114946628+m1liaron@users.noreply.github.com>
+Date:   Thu Mar 7 18:09:28 2024 +0200
+
+    point before fixing]
+    
+    Took 14 minutes
+
+[33mcommit 8ed0e242e299fc50d4a95f6a13d3e53f289da466[m
+Author: Vlad <114946628+m1liaron@users.noreply.github.com>
+Date:   Thu Mar 7 17:03:47 2024 +0200
+
+    backend
+    
+    Took 6 hours 34 minutes
+
+[33mcommit 1b9d5d1ef5535ac4f297d7717ea3b63f844f0b31[m
+Author: Vlad <machinker34@gmail.com>
+Date:   Wed Mar 6 23:45:20 2024 +0200
+
+    ShopsList, shoppingCart, with redux. Now without backend.
+
+[33mcommit 3a5f995179a9888d64d04fa435263c4191968c2e[m
+Author: Vlad <114946628+m1liaron@users.noreply.github.com>
+Date:   Wed Mar 6 19:03:44 2024 +0200
+
+    first commit

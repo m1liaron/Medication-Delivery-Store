@@ -14,6 +14,7 @@ export const getAllCarts = createAsyncThunk('cart/getAllCarts', async () => {
 export const addToCartDB = createAsyncThunk('cart/addToCart', async (data) => {
     try {
         await axios.post('/shopcarts', data).then((response) => {
+            console.log(response.data)
             return response.data;
         })
     } catch (error) {
@@ -34,6 +35,7 @@ export const updateCartDB = createAsyncThunk('cart/updateCart', async (data) => 
 
 export const removeCartFromDB = createAsyncThunk('cart/removeCart', async (id) => {
     try {
+        console.log(id)
         await axios.delete(`/shopcarts/${id}`);
         return id; // Return the ID to remove it from the state
     } catch (error) {
@@ -88,7 +90,7 @@ const shoppingCartSlice = createSlice({
             })
             .addCase(removeCartFromDB.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.carts = state.carts.filter(item => item.id !== action.payload);
+                state.carts = state.carts.filter(item => item._id !== action.payload);
             })
             .addMatcher(
                 (action) => action.type.endsWith('/pending'),
