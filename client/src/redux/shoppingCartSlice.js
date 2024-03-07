@@ -1,27 +1,109 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const getAllCarts = createAsyncThunk('cart/getAllCarts', async () => {
+    try {
+        const response = await axios.get('/shopcarts');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching carts:', error);
+        throw error;
+    }
+});
+
+export const addToCartDB = createAsyncThunk('cart/addToCart', async (data) => {
+    try {
+        await axios.post('/shopcarts', data).then((response) => {
+            return response.data;
+        })
+    } catch (error) {
+        console.error('Error adding to cart:', error);
+        throw error;
+    }
+});
+
+export const updateCartDB = createAsyncThunk('cart/updateCart', async (data) => {
+    try {
+        const response = await axios.put(`/shopcarts/${data.id}`, data);
+        return response.data;
+    } catch (error) {
+        console.error('Error updating cart:', error);
+        throw error;
+    }
+});
+
+export const removeCartFromDB = createAsyncThunk('cart/removeCart', async (id) => {
+    try {
+        await axios.delete(`/shopcarts/${id}`);
+        return id; // Return the ID to remove it from the state
+    } catch (error) {
+        console.error('Error removing from cart:', error);
+        throw error;
+    }
+});
 
 const shoppingCartSlice = createSlice({
     name: 'cart',
     initialState: {
-        carts: []
+        carts: [],
+        status: 'idle',
+        error: null,
     },
     reducers: {
         addToCart: (state, action) => {
             state.carts = [...state.carts, action.payload];
         },
         removeFromCart: (state, action) => {
-          state.carts = state.carts.filter(item => item.name !== action.payload)
+            state.carts = state.carts.filter(item => item.name !== action.payload);
         },
         updateCart: (state, action) => {
             const { name, newAmount } = action.payload;
             const itemToUpdate = state.carts.find(item => item.name === name);
 
             if (itemToUpdate) {
-                // If the item is found, update its quantity
                 itemToUpdate.amount = newAmount;
             }
         }
-    }
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(getAllCarts.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(getAllCarts.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.carts = action.payload;
+            })
+            .addCase(getAllCarts.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message;
+            })
+            .addCase(addToCartDB.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.carts = action.payload;
+            })
+            .addCase(updateCartDB.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.carts = action.payload;
+            })
+            .addCase(removeCartFromDB.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.carts = state.carts.filter(item => item.id !== action.payload);
+            })
+            .addMatcher(
+                (action) => action.type.endsWith('/pending'),
+                (state) => {
+                    state.status = 'loading';
+                }
+            )
+            .addMatcher(
+                (action) => action.type.endsWith('/rejected'),
+                (state, action) => {
+                    state.status = 'failed';
+                    state.error = action.error.message;
+                }
+            );
+    },
 });
 
 export const { addToCart, updateCart, removeFromCart } = shoppingCartSlice.actions;

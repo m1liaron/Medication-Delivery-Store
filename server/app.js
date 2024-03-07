@@ -5,6 +5,14 @@ const connectDB = require('./db/connect')
 app.get("/api", (req, res ) => {
     res.json({"users":['UserOne', 'UserTwo']})
 })
+const shopRouter = require('./routes/shop');
+const medicationRouter = require('./routes/medications')
+const shoppingCart = require('./routes/shoppingCart')
+
+app.use(express.json());
+app.use('/shops',shopRouter)
+app.use('/medications', medicationRouter);
+app.use('/shopcarts', shoppingCart);
 
 const start = async () => {
     try{
