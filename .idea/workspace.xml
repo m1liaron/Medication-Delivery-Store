@@ -13,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="45058" />
+    <option name="totalTimeSeconds" value="45167" />
     <option name="gitIntegration" value="true" />
     <option name="naggedAbout" value="1" />
   </component>
@@ -21,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-        <option value="JSX File" />
         <option value="JavaScript File" />
+        <option value="JSX File" />
       </list>
     </option>
   </component>
@@ -91,6 +91,7 @@
       <workItem from="1709744712638" duration="4000" />
       <workItem from="1709793350099" duration="34521000" />
       <workItem from="1709836839991" duration="13921000" />
+      <workItem from="1709853165259" duration="29000" />
     </task>
     <servers />
   </component>

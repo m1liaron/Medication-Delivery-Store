@@ -9,6 +9,7 @@ const DefaultForm = () => {
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Name</Form.Label>
                 <Form.Control type="name" placeholder="Enter name" />
+
             </Form.Group>
 
             <Form.Group controlId="formBasicEmail">
