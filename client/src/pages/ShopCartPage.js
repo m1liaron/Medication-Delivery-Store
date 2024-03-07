@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectCart, updateCart, removeFromCart, getAllCarts} from "../redux/shoppingCartSlice";
 import {selectMedication} from "../redux/medicationSlice";
 import MedicationCartList from "../components/MedicationCartList";
+import DefaultForm from "../components/DefaultForm";
 const ShopCartPage = () => {
     const medication = useSelector(selectMedication);
     const cartData = useSelector(selectCart);
@@ -25,9 +26,13 @@ const ShopCartPage = () => {
     };
 
     return (
-        <div>
-            ShopCartPage
-            <MedicationCartList data={cartData}/>
+        <div className="d-flex flex-row overflow-hidden">
+            <div className="flex-grow-1">
+                <DefaultForm/>
+            </div>
+            <div className="flex-grow-1">
+                <MedicationCartList data={cartData}/>
+            </div>
         </div>
     );
 };

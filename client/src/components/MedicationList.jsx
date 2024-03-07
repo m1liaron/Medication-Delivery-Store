@@ -8,16 +8,8 @@ const MedicationList = ({ selectedShop }) => {
     const medications = useSelector(selectMedication);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                await dispatch(fetchMedication());
-            } catch (error) {
-                console.error('Error fetching medications:', error);
-            }
-        };
-
-        fetchData();
-    }, [dispatch]);
+      dispatch(fetchMedication());
+    }, []);
 
     const filteredMedications =
         selectedShop && selectedShop.name

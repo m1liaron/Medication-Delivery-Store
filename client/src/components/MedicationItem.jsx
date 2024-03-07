@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCartDB, selectCart, updateCart } from '../redux/shoppingCartSlice';
-import { updateMedication } from '../redux/medicationSlice';
-
+import {addToCartDB, selectCart, updateCart, updateCartDB} from '../redux/shoppingCartSlice';
+import {updateMedication, updateMedicationDb} from '../redux/medicationSlice';
+import {getAllCarts} from "../redux/shoppingCartSlice";
 const MedicationItem = ({ medication }) => {
     const dispatch = useDispatch();
     const cart = useSelector(selectCart);
@@ -11,25 +11,47 @@ const MedicationItem = ({ medication }) => {
 
     const handleAddToCart = async () => {
         try {
-            const itemCart = cart?.find((item) => item.name === medication.name);
+            console.log(Array.isArray(cart))
+            if (!Array.isArray(cart)) {
+                console.error('Cart is not an array:', cart);
+                return;
+            }
 
-            console.log(cart)
+            const itemCart = cart.find((item) => item.name === medication.name);
+            console.log(`We found existing medication in the basket`, itemCart)
+
             if (itemCart) {
-                if (itemCart.amount < medication.amount) {
-                    dispatch(updateCart({ name: medication.name, newAmount: itemCart.amount + 1 }));
-                    await dispatch(updateMedication({ id: itemCart._id, amount: medication.amount - (itemCart.amount + 1) }));
+                console.log(`Yes, we have this medication in the basket`)
+                if (medication.amount >= 1) {
+                    const updatedMedication = { ...medication, amount: medication.amount - 1 };
+                    console.log(medication.amount)
+
+                    // Use await to make sure updateCartDB is completed before moving to the next step
+                    await dispatch(updateCartDB({ id: itemCart._id, amount: itemCart.amount + 1 }));
+
+                    // Use await to make sure updateMedicationDb is completed before moving to the next step
+                    await dispatch(updateMedicationDb({id: updatedMedication._id, amount: updatedMedication.amount}));
+
+                    // Use await to make sure getAllCarts is completed before moving to the next step
+                    await dispatch(getAllCarts());
                 } else {
                     console.log('Ліки закінчилися');
                 }
             } else {
-                await dispatch(addToCartDB({ ...medication, amount, id: medication._id }));
+                console.log('Add medication to the basket because it does not exist there')
+
+                // Pass only necessary data to addToCartDB, let MongoDB generate _id
+                await dispatch(addToCartDB({ name: medication.name, price: medication.price, amount }));
             }
 
-            setAmount(1);
+            // Refresh cart data after updating
+            await dispatch(getAllCarts());
+            // setAmount(1);
         } catch (error) {
             console.error('Error handling addToCart:', error);
         }
     };
+
 
     return (
         <>
