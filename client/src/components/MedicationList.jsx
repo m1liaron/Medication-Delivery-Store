@@ -30,7 +30,7 @@ const MedicationList = ({ selectedShop }) => {
         <ul className="list-group mt-3">
             {filteredMedications.map((medication, medIndex) => (
                 <li key={medIndex} className="list-group-item">
-                   <MedicationItem medication={medication} />
+                    <MedicationItem medication={medication} />
                 </li>
             ))}
         </ul>
