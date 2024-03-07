@@ -1,7 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getAllCarts = createAsyncThunk('cart/getAllCarts', async () => {
+export const getAllCarts = createAsyncThunk(
+    'cart/getAllCarts',
+    async () => {
     try {
         const response = await axios.get('/shopcarts');
         return response.data;
@@ -13,10 +15,9 @@ export const getAllCarts = createAsyncThunk('cart/getAllCarts', async () => {
 
 export const addToCartDB = createAsyncThunk('cart/addToCart', async (data) => {
     try {
-        await axios.post('/shopcarts', data).then((response) => {
-            console.log(response.data)
-            return response.data;
-        })
+        const response = await axios.post('/shopcarts', data);
+        console.log(data)
+        return response.data;
     } catch (error) {
         console.error('Error adding to cart:', error);
         throw error;
@@ -25,8 +26,10 @@ export const addToCartDB = createAsyncThunk('cart/addToCart', async (data) => {
 
 export const updateCartDB = createAsyncThunk('cart/updateCart', async (data) => {
     try {
-        const response = await axios.put(`/shopcarts/${data.id}`, data);
-        return response.data;
+        const response = await axios.put(`/shopcarts/${data.id}`, { amount: data.amount });
+        console.log(response.data);
+        console.log(data);
+        return response.data;  // Make sure the server returns the updated cart
     } catch (error) {
         console.error('Error updating cart:', error);
         throw error;
@@ -35,7 +38,6 @@ export const updateCartDB = createAsyncThunk('cart/updateCart', async (data) => 
 
 export const removeCartFromDB = createAsyncThunk('cart/removeCart', async (id) => {
     try {
-        console.log(id)
         await axios.delete(`/shopcarts/${id}`);
         return id; // Return the ID to remove it from the state
     } catch (error) {
@@ -74,7 +76,7 @@ const shoppingCartSlice = createSlice({
             })
             .addCase(getAllCarts.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.carts = action.payload;
+                state.carts = Array.isArray(action.payload) ? action.payload : [action.payload];
             })
             .addCase(getAllCarts.rejected, (state, action) => {
                 state.status = 'failed';
@@ -82,7 +84,7 @@ const shoppingCartSlice = createSlice({
             })
             .addCase(addToCartDB.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.carts = action.payload;
+                state.carts = Array.isArray(action.payload) ? action.payload : [action.payload];
             })
             .addCase(updateCartDB.fulfilled, (state, action) => {
                 state.status = 'succeeded';

@@ -4,10 +4,10 @@ import MedicationList from "../components/MedicationList";
 
 const ShopPage = () => {
     return (
-        <div>
+        <>
             <ShopsList/>
             <MedicationList/>
-        </div>
+        </>
     );
 };
 

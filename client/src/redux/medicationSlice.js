@@ -13,12 +13,11 @@ export const fetchMedication = createAsyncThunk('medication/fetchShops', async (
     }
 });
 
-export const updateMedication = createAsyncThunk('medication/update', async({id, amount}) => {
+export const updateMedicationDb = createAsyncThunk('medication/update', async({id, amount}) => {
     try {
-        axios.put(`/medications/${id}`, {amount}).then(response => {
-            console.log(response)
-            return response
-        })
+        const response = await axios.put(`/medications/${id}`, {amount});
+        console.log(response.data);
+        return response.data;  // Make sure the server returns the updated cart
     } catch (error){
         console.error('Error updating medication amount:', error);
         throw error;
@@ -33,7 +32,14 @@ const medicationSlice = createSlice({
         error: null,
     },
     reducers: {
+        updateMedication: (state, action) => {
+                const { id, amount } = action.payload;
+                const itemToUpdate = state.medications.find(item => item.id === id);
 
+                if (itemToUpdate) {
+                    itemToUpdate.amount = amount;
+                }
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -51,7 +57,7 @@ const medicationSlice = createSlice({
     },
 });
 
-// export const {} = medicationSlice.actions;
+export const {updateMedication} = medicationSlice.actions;
 
 export const selectMedication = (state) => state.medications.medications;
 

@@ -11,15 +11,8 @@ const ShopsList = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                await dispatch(fetchShops());
-            } catch (error) {
-                console.error('Error fetching shops:', error);
-            }
-        };
-        fetchData();
-    }, [dispatch]);
+        dispatch(fetchShops());
+    }, []);
 
     useEffect(() => {
         if(shopsData.length > 0){
