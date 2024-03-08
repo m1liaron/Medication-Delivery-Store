@@ -9,7 +9,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {onSaveOrder} from "../redux/orderSlice";
 import {deleteAllCarts, getAllCarts, selectCart, updateCart, updateCartDB} from "../redux/shoppingCartSlice";
 import toast, { Toaster } from 'react-hot-toast';
-
 const notify = () => toast.success('Thank you, for your order. We will call you back!');
 
 const validationSchema = Yup.object({
