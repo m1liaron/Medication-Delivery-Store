@@ -13,10 +13,10 @@ export const fetchMedication = createAsyncThunk('medication/fetchShops', async (
     }
 });
 
-export const updateMedicationDb = createAsyncThunk('medication/update', async({id, amount}) => {
+export const updateMedicationDb = createAsyncThunk('medication/update', async({id, amount, isFavorite = false}) => {
     try {
         console.log('Тепер робимо запит щоб оновити ліки')
-        const response = await axios.put(`/medications/${id}`, {amount});
+        const response = await axios.put(`/medications/${id}`, {amount, isFavorite});
         console.log('Ось оновлені ліки', response.data)
         return response.data;  // Make sure the server returns the updated cart
     } catch (error){
@@ -33,6 +33,14 @@ const medicationSlice = createSlice({
         error: null,
     },
     reducers: {
+        updateIsFavorite:(state, action) => {
+            const { _id, isFavorite } = action.payload;
+            const itemToUpdate = state.medications.medications.find(item => item._id === _id);
+
+            if (itemToUpdate) {
+                itemToUpdate.isFavorite = isFavorite;
+            }
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -58,7 +66,7 @@ const medicationSlice = createSlice({
     },
 });
 
-export const {updateMedication,} = medicationSlice.actions;
+export const {updateIsFavorite} = medicationSlice.actions;
 
 export const selectMedication = (state) => state.medications.medications;
 

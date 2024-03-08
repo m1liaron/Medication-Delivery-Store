@@ -23,7 +23,7 @@ const updateMedication = async (req, res) => {
 
         const updatedMedication = await Medication.findOneAndUpdate(
             { _id: id },
-            req.body,
+                req.body,
             { new: true } // Return the modified document
         );
 

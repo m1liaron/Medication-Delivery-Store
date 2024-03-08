@@ -1,14 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCartDB, selectCart, updateCartDB } from '../redux/shoppingCartSlice';
-import {decrease, selectMedication, updateMedication, updateMedicationDb} from '../redux/medicationSlice';
+import {selectMedication, updateIsFavorite, updateMedicationDb} from '../redux/medicationSlice';
 import Button from 'react-bootstrap/Button';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 const MedicationItem = ({ medication }) => {
     const dispatch = useDispatch();
     const cart = useSelector(selectCart);
-    const medications = useSelector(selectMedication)
-
+    const [isStarClicked, setIsStarClicked] = useState(false);
     const findItemInCart = (cart, itemName) => Array.isArray(cart) ? cart.find(item => item.name === itemName) : null;
 
     const decreaseMedicationAmount = async (medication, itemCart) => {
@@ -66,6 +66,11 @@ const MedicationItem = ({ medication }) => {
         }
     };
 
+    const handleStarClick = () => {
+        setIsStarClicked(!isStarClicked);
+        dispatch(updateMedicationDb({id: medication._id, isFavorite: !isStarClicked}))
+    };
+
     return (
         <div className="card mb-3">
             <div className="card-body">
@@ -74,6 +79,14 @@ const MedicationItem = ({ medication }) => {
                     <p className="card-text">${medication.price}</p>
                     <p className="card-text">Amount: {medication.amount > 0 ? medication.amount : 'Закінчилися'}</p>
                 </div>
+                <FontAwesomeIcon
+                    icon={faStar}
+                    style={{
+                        cursor: 'pointer',
+                        color: medication.isFavorite ? 'yellow' : 'gray',
+                    }}
+                    onClick={handleStarClick}
+                />
                 <Button variant="primary" onClick={handleAddToCart}>
                     Add to Cart
                 </Button>

@@ -11,7 +11,6 @@ const ShopPage = () => {
             {/*<button onClick={notify}>Make me a toast</button>*/}
             {/*<Toaster/>*/}
             <ShopsList/>
-            <MedicationList/>
         </>
     );
 };

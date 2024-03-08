@@ -19,6 +19,10 @@ const MedicationScheme = new mongoose.Schema({
         type: 'String',
         required: true
     },
+    isFavorite:{
+      type: Boolean,
+      default: false
+    },
     img:{
         type: 'String'
     }
