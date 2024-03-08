@@ -4,155 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0880ca7d-668e-440b-8831-c11a9a73a58d" name="Changes" comment="remove env">
+    <list default="true" id="0880ca7d-668e-440b-8831-c11a9a73a58d" name="Changes" comment="Fix bug with amount">
+      <change afterPath="$PROJECT_DIR$/server/ordersDB.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/MedicationCartList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MedicationCartList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/MedicationItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MedicationItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/MedicationList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MedicationList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/medicationSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/medicationSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/redux/shoppingCartSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/shoppingCartSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/medication.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/medication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/mime" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/mime" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/nodemon" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/nodemon" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/nodetouch" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/nodetouch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/nopt" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/nopt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/.bin/semver" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.bin/semver" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/@mongodb-js/saslprep/dist/node.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/@mongodb-js/saslprep/dist/node.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/@mongodb-js/saslprep/dist/node.d.ts.map" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/@mongodb-js/saslprep/dist/node.d.ts.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/@mongodb-js/saslprep/dist/node.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/@mongodb-js/saslprep/dist/node.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/@mongodb-js/saslprep/dist/node.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/@mongodb-js/saslprep/dist/node.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/@mongodb-js/saslprep/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/@mongodb-js/saslprep/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/@types/webidl-conversions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/@types/webidl-conversions/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/@types/whatwg-url/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/@types/whatwg-url/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/abbrev/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/abbrev/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/accepts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/accepts/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/anymatch/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/anymatch/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/array-flatten/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/array-flatten/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/balanced-match/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/balanced-match/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/binary-extensions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/binary-extensions/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/body-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/body-parser/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/brace-expansion/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/brace-expansion/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/braces/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/braces/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/bson/etc/prepare.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/bson/etc/prepare.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/bson/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/bson/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/bytes/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/bytes/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/call-bind/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/call-bind/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/chokidar/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/chokidar/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/concat-map/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/concat-map/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/content-disposition/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/content-disposition/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/content-type/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/content-type/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/cookie-signature/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/cookie-signature/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/cookie/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/cookie/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/debug/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/debug/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/define-data-property/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/define-data-property/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/depd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/depd/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/destroy/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/destroy/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/dotenv/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/dotenv/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/ee-first/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/ee-first/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/encodeurl/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/encodeurl/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/es-define-property/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/es-define-property/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/es-errors/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/es-errors/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/escape-html/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/escape-html/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/etag/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/etag/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/fill-range/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/fill-range/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/finalhandler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/finalhandler/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/forwarded/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/forwarded/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/fresh/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/fresh/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/function-bind/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/function-bind/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/get-intrinsic/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/get-intrinsic/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/glob-parent/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/glob-parent/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/gopd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/gopd/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/has-flag/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/has-flag/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/has-property-descriptors/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/has-property-descriptors/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/has-proto/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/has-proto/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/has-symbols/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/has-symbols/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/hasown/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/hasown/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/http-errors/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/http-errors/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/http-status-codes/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/http-status-codes/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/iconv-lite/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/iconv-lite/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/ignore-by-default/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/ignore-by-default/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/inherits/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/inherits/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/ipaddr.js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/ipaddr.js/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/is-binary-path/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/is-binary-path/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/is-extglob/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/is-extglob/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/is-glob/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/is-glob/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/is-number/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/is-number/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/kareem/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/kareem/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/lru-cache/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/lru-cache/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/media-typer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/media-typer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/memory-pager/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/memory-pager/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/merge-descriptors/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/merge-descriptors/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/methods/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/methods/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mime-db/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mime-db/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mime-types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mime-types/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mime/cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mime/cli.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mime/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mime/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mime/src/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mime/src/build.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/minimatch/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/minimatch/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mongodb-connection-string-url/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mongodb-connection-string-url/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mongodb/etc/prepare.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mongodb/etc/prepare.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mongodb/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mongodb/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mongoose/node_modules/ms/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mongoose/node_modules/ms/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mongoose/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mongoose/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mpath/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mpath/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mquery/node_modules/debug/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mquery/node_modules/debug/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mquery/node_modules/ms/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mquery/node_modules/ms/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/mquery/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/mquery/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/ms/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/ms/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/negotiator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/negotiator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/nodemon/bin/nodemon.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/nodemon/bin/nodemon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/nodemon/node_modules/debug/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/nodemon/node_modules/debug/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/nodemon/node_modules/ms/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/nodemon/node_modules/ms/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/nodemon/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/nodemon/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/nopt/bin/nopt.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/nopt/bin/nopt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/nopt/examples/my-program.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/nopt/examples/my-program.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/nopt/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/nopt/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/normalize-path/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/normalize-path/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/object-inspect/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/object-inspect/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/on-finished/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/on-finished/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/parseurl/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/parseurl/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/path-to-regexp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/path-to-regexp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/picomatch/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/picomatch/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/proxy-addr/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/proxy-addr/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/pstree.remy/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/pstree.remy/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/punycode/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/punycode/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/qs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/qs/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/range-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/range-parser/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/raw-body/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/raw-body/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/readdirp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/readdirp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/safe-buffer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/safe-buffer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/safer-buffer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/safer-buffer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/semver/bin/semver.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/semver/bin/semver.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/semver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/semver/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/send/node_modules/ms/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/send/node_modules/ms/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/send/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/send/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/serve-static/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/serve-static/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/set-function-length/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/set-function-length/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/setprototypeof/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/setprototypeof/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/side-channel/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/side-channel/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/sift/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/sift/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/sift/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/sift/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/simple-update-notifier/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/simple-update-notifier/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/sparse-bitfield/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/sparse-bitfield/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/statuses/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/statuses/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/supports-color/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/supports-color/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/to-regex-range/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/to-regex-range/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/toidentifier/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/toidentifier/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/touch/bin/nodetouch.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/touch/bin/nodetouch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/touch/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/touch/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/tr46/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/tr46/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/type-is/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/type-is/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/undefsafe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/undefsafe/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/unpipe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/unpipe/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/utils-merge/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/utils-merge/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/vary/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/vary/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/webidl-conversions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/webidl-conversions/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/whatwg-url/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/whatwg-url/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/yallist/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/yallist/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/Orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/Orders.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-        <option value="JavaScript File" />
         <option value="JSX File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -255,7 +111,7 @@
       <workItem from="1709836839991" duration="13921000" />
       <workItem from="1709853165259" duration="29000" />
       <workItem from="1709853201680" duration="2836000" />
-      <workItem from="1709889783574" duration="9660000" />
+      <workItem from="1709889783574" duration="11199000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -273,7 +129,31 @@
       <option name="project" value="LOCAL" />
       <updated>1709888507589</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fix bug with amount">
+      <option name="closed" value="true" />
+      <created>1709899958719</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709899958719</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fix bug with amount">
+      <option name="closed" value="true" />
+      <created>1709899999798</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709899999798</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fix bug with amount">
+      <option name="closed" value="true" />
+      <created>1709900036675</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709900036675</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,6 +168,7 @@
     <MESSAGE value="ShopsList, shoppingCart, with redux. Now without backend." />
     <MESSAGE value="first commit" />
     <MESSAGE value="remove env" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove env" />
+    <MESSAGE value="Fix bug with amount" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug with amount" />
   </component>
 </project>

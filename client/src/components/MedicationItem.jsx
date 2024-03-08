@@ -9,55 +9,72 @@ const MedicationItem = ({ medication }) => {
     const dispatch = useDispatch();
     const cart = useSelector(selectCart);
 
+
+    const findItemInCart = (cart, itemName) => {
+        if (!Array.isArray(cart)) {
+            console.error('Cart is not an array:', cart);
+            return null;
+        }
+
+        return cart.find((item) => item.name === itemName);
+    };
+
+    const decreaseMedicationAmount = async (medication, itemCart, dispatch) => {
+        console.log('Medication exists in shoppingCart');
+        if (medication.amount > 0) {
+            console.log(`Ліки ще є ${medication.amount}`);
+            const updatedMedication = { ...medication, amount: medication.amount - 1 };
+
+            try {
+                console.log('Тепер треба оновити ліки');
+                await dispatch(updateMedicationDb({ id: medication._id, amount: updatedMedication.amount - itemCart.amount }));
+                console.log('Тепер треба оновити карту в кошику');
+                await dispatch(updateCartDB({ id: itemCart._id, amount: itemCart.amount + 1 }));
+            } catch (error) {
+                console.error('Error updating medication or cart:', error);
+            }
+        } else {
+            console.log('Ліки закінчилися');
+        }
+    };
+
+    const addToCartIfNotExists = async (medication, dispatch) => {
+        console.log('Додаємо карту в кошик, бо її там немає');
+        const data = {
+            name: medication.name,
+            price: medication.price,
+            amount: 1,
+            img: medication.img
+        };
+
+        try {
+            await dispatch(addToCartDB(data));
+            await dispatch(updateMedicationDb({ id: medication._id, amount: medication.amount - 1 }));
+        } catch (error) {
+            console.error('Error adding to cart or updating medication:', error);
+        }
+    };
+
     const handleAddToCart = async () => {
+        const itemCart = findItemInCart(cart, medication.name);
+
+        console.log(`medication amount =${medication.amount}`);
+
+        if (itemCart) {
+            await decreaseMedicationAmount(medication, itemCart, dispatch);
+        } else {
+            await addToCartIfNotExists(medication, dispatch);
+        }
+    };
+
+
+    const findMedicineInCart = (itemCart) => {
         if (!Array.isArray(cart)) {
             console.error('Cart is not an array:', cart);
             return;
         }
-
-        const itemCart = cart.find((item) => item.name === medication.name);
-
-        console.log(`medication amout =${medication.amount}`)
-        if (itemCart) {
-            console.log('Medication exists in shoppingCart');
-            if (medication.amount > 0) {
-                console.log(`Ліки ще є ${medication.amount}`);
-                // Decrease medication amount locally before dispatching the update
-                const updatedMedication = { ...medication, amount: medication.amount - 1 };
-
-                try {
-                    // Dispatch update for medication first
-                    console.log('Тепер треба оновити ліки');
-                    await dispatch(updateMedicationDb({ id: medication._id, amount: updatedMedication.amount - itemCart.amount }));
-                    // Then dispatch the update for the cart
-                    console.log('Тепер треба оновити карту в кошику');
-                    await dispatch(updateCartDB({ id: itemCart._id, amount: itemCart.amount + 1 }));
-                } catch (error) {
-                    console.error('Error updating medication or cart:', error);
-                }
-            } else if(medication.amount <= 0){
-                console.log('Ліки закінчилися');
-            }
-        } else {
-            // Medication not in the cart, add it
-            console.log('Додаємо карту в кошик, бо її там немає');
-            const data = {
-                name: medication.name,
-                price: medication.price,
-                amount: 1,
-                img: medication.img
-            };
-
-            try {
-                // Dispatch both addToCart and updateMedication
-                await dispatch(addToCartDB(data));
-                // Update medication amount immediately after adding to cart
-                await dispatch(updateMedicationDb({ id: medication._id, amount: medication.amount - 1 }));
-            } catch (error) {
-                console.error('Error adding to cart or updating medication:', error);
-            }
-        }
-    };
+        return cart.find((item) => item.name === itemCart.name);
+    }
 
     return (
         <div className="card mb-3">
