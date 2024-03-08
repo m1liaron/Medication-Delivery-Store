@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMedication, selectMedication, updateMedication, updateMedicationDb } from '../redux/medicationSlice';
-import { getAllCarts, removeCartFromDB, removeFromCart, selectCart, updateCart } from '../redux/shoppingCartSlice';
+import {
+    getAllCarts,
+    removeCartFromDB,
+    removeFromCart,
+    selectCart,
+    updateCart,
+    updateCartDB
+} from '../redux/shoppingCartSlice';
 import Button from 'react-bootstrap/Button';
+import toast,{Toaster} from "react-hot-toast";
 
 const MedicationCartList = ({ data }) => {
     const medications = useSelector(selectMedication);
     const cart = useSelector(selectCart);
     const [newAmount, setNewAmount] = useState(1);
+
+    useEffect(() => {
+        dispatch(fetchMedication())
+    }, []);
 
     const dispatch = useDispatch();
 
@@ -35,26 +47,31 @@ const MedicationCartList = ({ data }) => {
         }
     };
 
-    const onUpdateCart = async (cart, newAmount) => {
-        try {
-            const filteredMedication = medications.filter((item) => item.name === cart.name);
-
-            // Dispatch updateCart action if needed
-            await dispatch(updateMedicationDb({ id: filteredMedication.amount, amount: filteredMedication.amount + cart.amount }));
-            await dispatch(updateCart({ name: cart.name, newAmount }));
-            // Handle other logic as needed
-        } catch (error) {
-            console.error('Error updating cart:', error);
-        }
-    };
-
     const total = data?.map((item) => item.price * item.amount);
 
     const totalPrice = total ? total.reduce((acc, curr) => acc + curr, 0) : 0;
 
-    // console.log(data)
+    const onUpdateCart = (cart) => {
+        console.log(medications.medications)
+        const findMedication = medications.medications.find(med => med.name === cart.name);
+        console.log(newAmount)
+        if(findMedication.amount < newAmount){
+            toast.error(`We don't have this amount of drugs, we have ${findMedication.amount}`)
+        } else if(parseInt(newAmount) === 0){
+            toast.error("You can't add 0 amount")
+        } else {
+            console.log('Update cart')
+            toast.success('Updating cart');
+            dispatch(updateCartDB({id: cart._id, amount: parseInt(newAmount)}));
+        }
+    }
+
     return (
         <div className="my-3 overflow-y-auto h-50">
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
             <h1>Total price:{totalPrice.toFixed(2)}$</h1>
             {data?.map((item, index) => (
                 <div className="card m-5 p-1 d-flex flex-row" key={index}>
@@ -64,6 +81,7 @@ const MedicationCartList = ({ data }) => {
                         <h5 className="card-title">{item.name}</h5>
                         <h6 className="card-title">{item.price}$</h6>
                         <p>{item.amount}</p>
+                        <input value={newAmount} onChange={(e) => setNewAmount(e.target.value)} type='number' min='1'/>
 
                         <div className="btn-group" role="group">
                             <Button variant="secondary" onClick={() => onUpdateCart(item)}>

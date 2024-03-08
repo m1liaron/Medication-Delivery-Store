@@ -49,7 +49,9 @@ export const deleteAllCarts = createAsyncThunk(
     'cart/deleteAllCarts',
     async() => {
         try{
-            await axios.delete('/shopcarts');
+            console.log('delete all carts')
+            const response = await axios.delete('/shopcarts')
+            console.log(response);
             return [];
         } catch (error){
             console.error('Error delete all carts:', error);
@@ -99,7 +101,7 @@ const shoppingCartSlice = createSlice({
             })
             .addCase(updateCartDB.fulfilled, (state, action) => {
                 const { _id, amount } = action.payload;
-                const itemToUpdate = state.medications.medications.find(item => item._id === _id);
+                const itemToUpdate = state.carts.find(item => item._id === _id);
 
                 if (itemToUpdate) {
                     itemToUpdate.amount = amount;

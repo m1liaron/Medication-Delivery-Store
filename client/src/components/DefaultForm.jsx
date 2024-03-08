@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import {useDispatch, useSelector} from "react-redux";
 import {onSaveOrder} from "../redux/orderSlice";
-import {deleteAllCarts, selectCart, updateCart, updateCartDB} from "../redux/shoppingCartSlice";
+import {deleteAllCarts, getAllCarts, selectCart, updateCart, updateCartDB} from "../redux/shoppingCartSlice";
 import toast, { Toaster } from 'react-hot-toast';
 
 const notify = () => toast.success('Thank you, for your order. We will call you back!');
@@ -30,14 +30,10 @@ const DefaultForm = () => {
 
         console.log(ordersArray)
         dispatch(onSaveOrder(ordersArray))
-        notify()
-        deleteAllCarts()
-    };
-
-    const deleteAllCarts = () => {
-        // reset carts
         dispatch(deleteAllCarts())
-    }
+        dispatch(getAllCarts())
+        notify()
+    };
 
 
     const formik = useFormik({

@@ -75,9 +75,11 @@ const updateCart = async (req, res) => {
 }
 
 const deleteAllCarts = async () => {
+    console.log('Deleting all carts');
     try{
         console.log('Deleting all carts');
-        await mongoose.connection.collections['shopCarts'].deleteMany({});
+        // await mongoose.connection.collections['shopCarts'].deleteMany({});
+        Shopcart.collection.drop()
         console.log('Carts reset successfully');
         return { message: 'Carts reset successfully' };
     } catch(error){
