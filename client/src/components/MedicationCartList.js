@@ -24,12 +24,10 @@ const MedicationCartList = ({ data }) => {
             console.log('Оновлюємо ліки, щоб повертнути кількість назад');
             console.log(`Cart amount = ${item.amount}, medication amount = ${filteredMedication.amount}`);
             console.log('cart amount + medication amount =', item.amount + filteredMedication.amount);
-            await updateMedicationDb({ id: filteredMedication._id, amount: filteredMedication.amount });
+            await dispatch(updateMedicationDb({ id: filteredMedication._id, amount: filteredMedication.amount + item.amount }))
             console.log('Видаляємо картку з кошика Database');
             await dispatch(removeCartFromDB(item._id));
             console.log('Видаляємо картку з кошика frontend');
-            await dispatch(removeFromCart(item._id));
-            dispatch(fetchMedication());
             // Handle other logic as needed
             console.log('Функція закінчена');
         } catch (error) {

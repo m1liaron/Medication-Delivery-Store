@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCartDB, selectCart, updateCartDB } from '../redux/shoppingCartSlice';
-import { decrease, updateMedication, updateMedicationDb } from '../redux/medicationSlice';
+import {decrease, selectMedication, updateMedication, updateMedicationDb} from '../redux/medicationSlice';
 import Button from 'react-bootstrap/Button';
 
 const MedicationItem = ({ medication }) => {
     const dispatch = useDispatch();
     const cart = useSelector(selectCart);
+    const medications = useSelector(selectMedication)
 
     const findItemInCart = (cart, itemName) => Array.isArray(cart) ? cart.find(item => item.name === itemName) : null;
 
@@ -15,7 +16,7 @@ const MedicationItem = ({ medication }) => {
             const updatedMedication = { ...medication, amount: medication.amount - 1 };
 
             try {
-                await dispatch(updateMedicationDb({ id: medication._id, amount: updatedMedication.amount - itemCart.amount }));
+                await dispatch(updateMedicationDb({ id: medication._id, amount: updatedMedication.amount }));
                 await dispatch(updateCartDB({ id: itemCart._id, amount: itemCart.amount + 1 }));
             } catch (error) {
                 console.error('Error updating medication or cart:', error);
@@ -26,24 +27,38 @@ const MedicationItem = ({ medication }) => {
     };
 
     const addToCartIfNotExists = async (medication) => {
-        const data = {
-            name: medication.name,
-            price: medication.price,
-            amount: 1,
-            img: medication.img
-        };
+        const existingCartItem = findItemInCart(cart, medication.name);
 
-        try {
-            await dispatch(addToCartDB(data));
-            await dispatch(updateMedicationDb({ id: medication._id, amount: medication.amount - 1 }));
-        } catch (error) {
-            console.error('Error adding to cart or updating medication:', error);
+        if (existingCartItem) {
+            // Medication already exists in the cart, update the amount
+            try {
+                await dispatch(updateCartDB({ id: existingCartItem._id, amount: existingCartItem.amount + 1 }));
+                await dispatch(updateMedicationDb({ id: medication._id, amount: medication.amount - 1 }));
+            } catch (error) {
+                console.error('Error updating cart or medication:', error);
+            }
+        } else {
+            // Medication doesn't exist in the cart, add it
+            const data = {
+                name: medication.name,
+                price: medication.price,
+                amount: 1,
+                img: medication.img
+            };
+
+            try {
+                await dispatch(addToCartDB(data));
+                await dispatch(updateMedicationDb({ id: medication._id, amount: medication.amount - 1 }));
+            } catch (error) {
+                console.error('Error adding to cart or updating medication:', error);
+            }
         }
     };
 
     const handleAddToCart = async () => {
         const itemCart = findItemInCart(cart, medication.name);
 
+        console.log('ItemCart', itemCart)
         if (itemCart) {
             await decreaseMedicationAmount(medication, itemCart);
         } else {

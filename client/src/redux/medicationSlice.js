@@ -33,14 +33,6 @@ const medicationSlice = createSlice({
         error: null,
     },
     reducers: {
-        updateMedication: (state, action) => {
-                const { id, amount } = action.payload;
-                const itemToUpdate = state.medications.find(item => item._id === id);
-
-                if (itemToUpdate) {
-                    itemToUpdate.amount = amount;
-                }
-        }
     },
     extraReducers: (builder) => {
         builder
@@ -54,6 +46,14 @@ const medicationSlice = createSlice({
             .addCase(fetchMedication.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error.message;
+            })
+            .addCase(updateMedicationDb.fulfilled, (state, action) => {
+                const { _id, amount } = action.payload;
+                const itemToUpdate = state.medications.medications.find(item => item._id === _id);
+
+                if (itemToUpdate) {
+                    itemToUpdate.amount = amount;
+                }
             })
     },
 });
