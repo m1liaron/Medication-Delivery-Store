@@ -20,23 +20,13 @@ const DefaultForm = () => {
     const carts = useSelector(selectCart);
     const dispatch = useDispatch()
     const saveOrderToDB = (userData) => {
-        const ordersArray = [];
-
-        carts.map(cartItem => {
-            const orderData = {
-                medications: [cartItem],
-                userName: userData.name,
-                phone: userData.number,
-                address: userData.address,
-                email: userData.email,
-                type: userData.name, // Assuming you want the 'type' property in each order
-            };
-
-            ordersArray.push(orderData);
-        });
+        const ordersArray = {
+            medications: carts,
+            ...userData
+    };
 
         console.log(ordersArray)
-        return ordersArray;
+        dispatch(onSaveOrder(ordersArray))
     };
 
 
@@ -51,9 +41,9 @@ const DefaultForm = () => {
         onSubmit: (values, { resetForm }) => {
 
             const orderData = {
-                name: values.name,
+                userName: values.name,
                 email: values.email,
-                number: values.number,
+                phone: values.number,
                 address: values.address,
             };
 

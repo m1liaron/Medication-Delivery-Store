@@ -41,4 +41,4 @@ export const {} = orderSlice.actions
 
 export const selectOrder = (state) => state.orders.orders
 
-export const shopCartReducers = orderSlice.reducer;
+export const orderReducers = orderSlice.reducer;
