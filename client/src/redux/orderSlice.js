@@ -17,7 +17,7 @@ export const onSaveOrder = createAsyncThunk(
 const orderSlice = createSlice({
     name:'orders',
     initialState: {
-        carts: [],
+        orders: [],
         status: 'idle',
         error: null,
     },

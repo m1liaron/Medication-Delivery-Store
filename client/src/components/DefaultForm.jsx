@@ -7,7 +7,10 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import {useDispatch, useSelector} from "react-redux";
 import {onSaveOrder} from "../redux/orderSlice";
-import {selectCart} from "../redux/shoppingCartSlice";
+import {deleteAllCarts, selectCart, updateCart, updateCartDB} from "../redux/shoppingCartSlice";
+import toast, { Toaster } from 'react-hot-toast';
+
+const notify = () => toast.success('Thank you, for your order. We will call you back!');
 
 const validationSchema = Yup.object({
     name: Yup.string().required('Name is required'),
@@ -27,7 +30,14 @@ const DefaultForm = () => {
 
         console.log(ordersArray)
         dispatch(onSaveOrder(ordersArray))
+        notify()
+        deleteAllCarts()
     };
+
+    const deleteAllCarts = () => {
+        // reset carts
+        dispatch(deleteAllCarts())
+    }
 
 
     const formik = useFormik({
@@ -47,16 +57,18 @@ const DefaultForm = () => {
                 address: values.address,
             };
 
-
-
             console.log(orderData)
             saveOrderToDB(orderData)
-            // resetForm()
+            resetForm()
         },
     });
 
     return (
         <Container className='p-4 h-auto' style={{ backgroundColor: '#625959', color: '#fff' }}>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
             <Form onSubmit={formik.handleSubmit}>
                 <Row>
                         <Form.Group controlId="formName">

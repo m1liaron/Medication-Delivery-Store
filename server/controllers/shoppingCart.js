@@ -1,5 +1,6 @@
 const Shopcart = require('../models/ShopCart');
 const {StatusCodes} = require('http-status-codes');
+const mongoose = require('mongoose');
 
 const getAllCarts = async (req, res) => {
     try{
@@ -73,10 +74,22 @@ const updateCart = async (req, res) => {
     }
 }
 
+const deleteAllCarts = async () => {
+    try{
+        console.log('Deleting all carts');
+        await mongoose.connection.collections['shopCarts'].deleteMany({});
+        console.log('Carts reset successfully');
+        return { message: 'Carts reset successfully' };
+    } catch(error){
+        console.error('Error reseting carts:', error.message);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
+    }
+}
 
 module.exports = {
     getAllCarts,
     addToCart,
     removeFromCart,
-    updateCart
+    updateCart,
+    deleteAllCarts
 }

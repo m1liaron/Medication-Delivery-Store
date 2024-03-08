@@ -45,6 +45,18 @@ export const removeCartFromDB = createAsyncThunk('cart/removeCart', async (id) =
     }
 });
 
+export const deleteAllCarts = createAsyncThunk(
+    'cart/deleteAllCarts',
+    async() => {
+        try{
+            await axios.delete('/shopcarts');
+            return [];
+        } catch (error){
+            console.error('Error delete all carts:', error);
+            throw error;
+        }
+    })
+
 const shoppingCartSlice = createSlice({
     name: 'cart',
     initialState: {
@@ -86,12 +98,20 @@ const shoppingCartSlice = createSlice({
                 state.carts = Array.isArray(action.payload) ? action.payload : [action.payload];
             })
             .addCase(updateCartDB.fulfilled, (state, action) => {
-                state.status = 'succeeded';
-                state.carts = Array.isArray(action.payload) ? action.payload : [action.payload];
+                const { _id, amount } = action.payload;
+                const itemToUpdate = state.medications.medications.find(item => item._id === _id);
+
+                if (itemToUpdate) {
+                    itemToUpdate.amount = amount;
+                }
             })
             .addCase(removeCartFromDB.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 state.carts = state.carts.filter(item => item._id !== action.payload);
+            })
+            .addCase(deleteAllCarts.fulfilled, (state) => {
+                state.status = 'succeeded';
+                state.carts = [];
             })
             .addMatcher(
                 (action) => action.type.endsWith('/pending'),
