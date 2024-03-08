@@ -12,19 +12,22 @@ const getAllMedications = async (req, res) => {
 }
 
 const updateMedication = async (req, res) => {
+    console.log('Start updateMedication function')
     const {
         body: {amount},
         params: {id}
     } = req;
     try{
+        console.log('Ліки дата =', req.body);
+
 
         const updatedMedication = await Medication.findOneAndUpdate(
             { _id: id },
-            { amount },
+            req.body,
             { new: true } // Return the modified document
         );
 
-        // console.log(`Updated medication: ${updatedMedication}`)
+        console.log(`Updated medication: ${updatedMedication}`)
         if (!updatedMedication) {
             console.log(`No task with id ${id} in project ${id}`);
             return res.status(StatusCodes.NOT_FOUND).json({ error: 'Task not found' });

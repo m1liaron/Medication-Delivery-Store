@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {addToCart} from "../redux/shoppingCartSlice";
 import MedicationItem from "./MedicationItem";
 import {fetchMedication, selectMedication} from "../redux/medicationSlice";
 const MedicationList = ({ selectedShop }) => {
@@ -19,7 +18,7 @@ const MedicationList = ({ selectedShop }) => {
             : [];
 
     return (
-        <ul className="list-group mt-3 overflow-y-auto h-25">
+        <ul className="list-group mt-3 overflow-y-auto h-75">
             {filteredMedications.map((medication, medIndex) => (
                 <li key={medIndex} className="list-group-item border border-dark">
                     <MedicationItem medication={medication} />
