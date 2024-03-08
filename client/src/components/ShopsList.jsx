@@ -34,7 +34,7 @@ const ShopsList = () => {
                                 style={{cursor:'pointer'}}
                                 onClick={() => setSelected(shop)}
                             >
-                                <h2>{shop.name}</h2>
+                                <h5>{shop.name}</h5>
                             </li>
                         ))}
                     </ul>

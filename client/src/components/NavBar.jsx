@@ -1,23 +1,31 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import {Link, Outlet} from "react-router-dom";
+import { Outlet, NavLink } from 'react-router-dom';
+
 const NavBar = () => {
     return (
         <>
-        <Navbar expand="lg" className="bg-body-tertiary">
-            <Container>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Link to={'/'}>Shop</Link>
-                        <Link to={'/cart'}>Shopping cart</Link>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
-        <Outlet/>
+            <Navbar expand="lg" className="bg-body-tertiary">
+                <Container>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <NavLink
+                                to={'/'}
+                                className="nav-link me-3 border-right"
+                                activeclassname="active-link"
+                            >
+                                Shop
+                            </NavLink>
+                            <NavLink to={'/cart'} className="nav-link" activeclassname="active-link">
+                                Shopping cart
+                            </NavLink>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+            <Outlet />
         </>
     );
 };

@@ -12,16 +12,16 @@ const MedicationList = ({ selectedShop }) => {
     }, []);
 
     const filteredMedications =
-        selectedShop && selectedShop.name
-            ? medications?.medications.filter(
-                (medication) => medication.shop === selectedShop.name
-            )
+        medications && medications.medications
+            ? selectedShop && selectedShop.name
+                ? medications.medications.filter((medication) => medication.shop === selectedShop.name)
+                : []
             : [];
 
     return (
-        <ul className="list-group mt-3">
+        <ul className="list-group mt-3 overflow-y-auto h-25">
             {filteredMedications.map((medication, medIndex) => (
-                <li key={medIndex} className="list-group-item">
+                <li key={medIndex} className="list-group-item border border-dark">
                     <MedicationItem medication={medication} />
                 </li>
             ))}

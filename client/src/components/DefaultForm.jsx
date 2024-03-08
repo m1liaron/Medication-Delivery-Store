@@ -1,15 +1,13 @@
-// DefaultForm.jsx
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const DefaultForm = () => {
     return (
-        <Form className='my-3 m-5 p-5' style={{ backgroundColor: '#343a40', color: 'white' }}>
+        <Form className='my-3 m-5 p-5' style={{ backgroundColor: '#65666d', color: 'white' }}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Name</Form.Label>
                 <Form.Control type="name" placeholder="Enter name" />
-
             </Form.Group>
 
             <Form.Group controlId="formBasicEmail">

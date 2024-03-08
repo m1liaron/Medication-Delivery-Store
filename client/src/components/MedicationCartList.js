@@ -15,7 +15,7 @@ const MedicationCart = ({data}) => {
           dispatch(getAllCarts());
     }, []);
     const onRemoveCart = async (item) => {
-        const filteredMedication = medication.filter(item => item.name === cart.name);
+        const filteredMedication = medication?.filter(item => item.name === cart.name);
         try {
             await updateMedication({id: filteredMedication._id, newAmount: item.amount + filteredMedication.amount})
             await dispatch(removeCartFromDB(item._id));
@@ -50,7 +50,7 @@ const MedicationCart = ({data}) => {
             <h1>Total price:{totalPrice.toFixed(2)}$</h1>
             {data?.map((item, index) => (
                 <div className="card m-5 p-1 d-flex flex-row" key={index}>
-                    <img className="card-img-top" src="..." alt={item.name} />
+                    <img className="card-img-top" src={item.img} alt={item.name} />
 
                     <div className="card-body">
                         <h5 className="card-title">{item.name}</h5>

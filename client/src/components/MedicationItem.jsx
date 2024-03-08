@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {addToCartDB, selectCart, updateCart, updateCartDB} from '../redux/shoppingCartSlice';
 import {updateMedication, updateMedicationDb} from '../redux/medicationSlice';
 import {getAllCarts} from "../redux/shoppingCartSlice";
+import Button from 'react-bootstrap/Button';
 const MedicationItem = ({ medication }) => {
     const dispatch = useDispatch();
     const cart = useSelector(selectCart);
@@ -22,15 +23,13 @@ const MedicationItem = ({ medication }) => {
 
             if (itemCart) {
                 console.log(`Yes, we have this medication in the basket`)
-                if (medication.amount >= 1) {
+                if (medication.amount > 0) {
                     const updatedMedication = { ...medication, amount: medication.amount - 1 };
                     console.log(medication.amount)
 
-                    // Use await to make sure updateCartDB is completed before moving to the next step
-                    await dispatch(updateCartDB({ id: itemCart._id, amount: itemCart.amount + 1 }));
+                    // await dispatch(updateCartDB({ id: itemCart._id, amount: itemCart.amount + 1 }));
 
-                    // Use await to make sure updateMedicationDb is completed before moving to the next step
-                    await dispatch(updateMedicationDb({id: updatedMedication._id, amount: updatedMedication.amount}));
+                    await dispatch(updateMedicationDb({id: updatedMedication._id,  amount: medication.amount - 1}));
 
                     // Use await to make sure getAllCarts is completed before moving to the next step
                     await dispatch(getAllCarts());
@@ -54,16 +53,19 @@ const MedicationItem = ({ medication }) => {
 
 
     return (
-        <>
-            <img src={medication.img} alt={medication.name} className="w-100 h-100" />
-            <p>
-                {medication.name} - ${medication.price}
-            </p>
-            <p>{medication.amount}</p>
-            <button className="" onClick={handleAddToCart}>
-                Add to Cart
-            </button>
-        </>
+        <div className="card mb-3">
+            <img src={medication.img} alt={medication.name} className="card-img-top" />
+            <div className="card-body">
+                <h5 className="card-title">{medication.name}</h5>
+                <div className="d-flex justify-content-between">
+                    <p className="card-text">${medication.price}</p>
+                    <p className="card-text">Amount: {medication.amount > 0 ? medication.amount : 'Закінчилися'}</p>
+                </div>
+                <Button variant="primary" onClick={handleAddToCart}>
+                    Add to Cart
+                </Button>
+            </div>
+        </div>
     );
 };
 

@@ -1,13 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {selectCart, updateCart, removeFromCart, getAllCarts} from "../redux/shoppingCartSlice";
-import {selectMedication} from "../redux/medicationSlice";
+import {selectCart,  getAllCarts} from "../redux/shoppingCartSlice";
 import MedicationCartList from "../components/MedicationCartList";
 import DefaultForm from "../components/DefaultForm";
+import { Row, Col } from 'react-bootstrap';
 const ShopCartPage = () => {
-    const medication = useSelector(selectMedication);
     const cartData = useSelector(selectCart);
-    const [newAmount, setNewAmount] = useState(1);
 
     const dispatch = useDispatch()
 
@@ -15,25 +13,15 @@ const ShopCartPage = () => {
         dispatch(getAllCarts())
     }, []);
 
-    const onUpdateCart = (cart, newAmount) => {
-        const filteredMedication = medication.filter(item => item.name === cart.name)
-        if (newAmount <= filteredMedication.amount) {
-            dispatch(updateCart({ name: cart.name, newAmount }));
-        } else {
-            // Display an error message or handle the situation where the new amount exceeds the available quantity.
-            console.log('Error: New amount exceeds available quantity.');
-        }
-    };
-
     return (
-        <div className="d-flex flex-row overflow-hidden">
-            <div className="flex-grow-1">
-                <DefaultForm/>
-            </div>
-            <div className="flex-grow-1">
-                <MedicationCartList data={cartData}/>
-            </div>
-        </div>
+        <Row className="gx-4 gy-4">
+            <Col xs={12} lg={6}>
+                <DefaultForm />
+            </Col>
+            <Col xs={12} lg={6}>
+                <MedicationCartList data={cartData} />
+            </Col>
+        </Row>
     );
 };
 

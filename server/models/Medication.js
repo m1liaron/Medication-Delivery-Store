@@ -18,6 +18,9 @@ const MedicationScheme = new mongoose.Schema({
     shop:{
         type: 'String',
         required: true
+    },
+    img:{
+        type: 'String'
     }
 })
 
