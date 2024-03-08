@@ -34,7 +34,7 @@ const medicationSlice = createSlice({
     reducers: {
         updateMedication: (state, action) => {
                 const { id, amount } = action.payload;
-                const itemToUpdate = state.medications.find(item => item.id === id);
+                const itemToUpdate = state.medications.find(item => item._id === id);
 
                 if (itemToUpdate) {
                     itemToUpdate.amount = amount;
@@ -57,7 +57,7 @@ const medicationSlice = createSlice({
     },
 });
 
-export const {updateMedication} = medicationSlice.actions;
+export const {updateMedication,} = medicationSlice.actions;
 
 export const selectMedication = (state) => state.medications.medications;
 

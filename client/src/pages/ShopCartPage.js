@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {selectCart,  getAllCarts} from "../redux/shoppingCartSlice";
-import MedicationCartList from "../components/MedicationCartList";
 import DefaultForm from "../components/DefaultForm";
 import { Row, Col } from 'react-bootstrap';
+import MedicationCartList from "../components/MedicationCartList";
 const ShopCartPage = () => {
     const cartData = useSelector(selectCart);
 

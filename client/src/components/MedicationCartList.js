@@ -1,26 +1,35 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {selectMedication, updateMedication} from "../redux/medicationSlice";
+import {fetchMedication, selectMedication, updateMedication, updateMedicationDb} from "../redux/medicationSlice";
 import {getAllCarts, removeCartFromDB, removeFromCart, selectCart, updateCart} from "../redux/shoppingCartSlice";
 import Button from 'react-bootstrap/Button';
-const MedicationCart = ({data}) => {
-    const medication = useSelector(selectMedication);
+const MedicationCartList = ({data}) => {
+    const medications = useSelector(selectMedication);
     const cart = useSelector(selectCart);
     const [newAmount, setNewAmount] = useState(1);
 
     const dispatch = useDispatch()
-    console.log(medication)
 
     useEffect(() => {
-          dispatch(getAllCarts());
+        dispatch(getAllCarts());
     }, []);
     const onRemoveCart = async (item) => {
-        const filteredMedication = medication?.filter(item => item.name === cart.name);
+        console.log('Початок onRemoveCart function')
+        console.log('Знаходимо ліки, з таким самим name')
+        const filteredMedication = medications.medications.find(med => med.name === item.name);
+        console.log('Ось ці ліки', filteredMedication);
         try {
-            await updateMedication({id: filteredMedication._id, newAmount: item.amount + filteredMedication.amount})
+            console.log('Оновлюємо ліки, щоб повертнути кількість назад')
+            console.log(`Cart amount = ${item.amount}, medication amount = ${filteredMedication.amount}`)
+            console.log('cart amount + medication amount =',item.amount + filteredMedication.amount)
+            await updateMedicationDb({id: filteredMedication._id, amount: filteredMedication.amount})
+            console.log('Видаляємо картку з кошика Database');
             await dispatch(removeCartFromDB(item._id));
+            console.log('Видаляємо картку з кошика frontend');
             await dispatch(removeFromCart(item._id));
+            dispatch(fetchMedication())
             // Handle other logic as needed
+            console.log('Функція закінчена');
         } catch (error) {
             console.error('Error removing from cart:', error);
         }
@@ -28,11 +37,10 @@ const MedicationCart = ({data}) => {
 
     const onUpdateCart = async (cart, newAmount) => {
         try {
-            const filteredMedication = medication.filter(item => item.name === cart.name);
-            console.log(cart.name);
-            console.log(medication);
+            const filteredMedication = medications.filter(item => item.name === cart.name);
 
             // Dispatch updateCart action if needed
+            await dispatch(updateMedicationDb({id: filteredMedication.amount, amount: filteredMedication.amount + cart.amount}))
             await dispatch(updateCart({ name: cart.name, newAmount }));
             // Handle other logic as needed
         } catch (error) {
@@ -45,12 +53,13 @@ const MedicationCart = ({data}) => {
     const totalPrice = total ? total.reduce((acc, curr) => acc + curr, 0) : 0;
 
 
+    // console.log(data)
     return (
-        <div className="my-3  overflow-y-auto">
+        <div className="my-3  overflow-y-auto h-50">
             <h1>Total price:{totalPrice.toFixed(2)}$</h1>
             {data?.map((item, index) => (
                 <div className="card m-5 p-1 d-flex flex-row" key={index}>
-                    <img className="card-img-top" src={item.img} alt={item.name} />
+                    <img className="card-img-top" width={100} height={400} src={item.img} alt={item.name} />
 
                     <div className="card-body">
                         <h5 className="card-title">{item.name}</h5>
@@ -68,4 +77,4 @@ const MedicationCart = ({data}) => {
     );
 };
 
-export default MedicationCart;
+export default MedicationCartList;

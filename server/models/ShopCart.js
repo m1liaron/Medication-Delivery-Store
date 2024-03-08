@@ -14,6 +14,9 @@ const ShopCartScheme = new mongoose.Schema({
         type: Number,
         required: true,
         default: 1
+    },
+    img:{
+        type: 'String'
     }
 })
 

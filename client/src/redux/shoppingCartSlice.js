@@ -4,19 +4,18 @@ import axios from "axios";
 export const getAllCarts = createAsyncThunk(
     'cart/getAllCarts',
     async () => {
-    try {
-        const response = await axios.get('/shopcarts');
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching carts:', error);
-        throw error;
-    }
-});
+        try {
+            const response = await axios.get('/shopcarts');
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching carts:', error);
+            throw error;
+        }
+    });
 
 export const addToCartDB = createAsyncThunk('cart/addToCart', async (data) => {
     try {
         const response = await axios.post('/shopcarts', data);
-        console.log(data)
         return response.data;
     } catch (error) {
         console.error('Error adding to cart:', error);
@@ -26,9 +25,9 @@ export const addToCartDB = createAsyncThunk('cart/addToCart', async (data) => {
 
 export const updateCartDB = createAsyncThunk('cart/updateCart', async (data) => {
     try {
+        console.log('Оновлюємо картку в кошику')
         const response = await axios.put(`/shopcarts/${data.id}`, { amount: data.amount });
-        console.log(response.data);
-        console.log(data);
+        console.log('Оновлена картка = ', response.data);
         return response.data;  // Make sure the server returns the updated cart
     } catch (error) {
         console.error('Error updating cart:', error);
@@ -88,7 +87,7 @@ const shoppingCartSlice = createSlice({
             })
             .addCase(updateCartDB.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.carts = action.payload;
+                state.carts = Array.isArray(action.payload) ? action.payload : [action.payload];
             })
             .addCase(removeCartFromDB.fulfilled, (state, action) => {
                 state.status = 'succeeded';

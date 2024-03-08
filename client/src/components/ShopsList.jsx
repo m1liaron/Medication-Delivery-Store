@@ -27,22 +27,24 @@ const ShopsList = () => {
                 {/* Left column for shops */}
                 <div className="col-md-6">
                     <ul className="list-group">
-                        {shopsData.map((shop, index) => (
-                            <li
-                                key={index}
-                                className={`list-group-item m-2 p-3 rounded pe-auto${selected === shop ? 'bg-blue text-bg-danger' : ''}`}
-                                style={{cursor:'pointer'}}
-                                onClick={() => setSelected(shop)}
-                            >
-                                <h5>{shop.name}</h5>
-                            </li>
-                        ))}
+                        {
+                            shopsData.map((shop, index) => (
+                                <li
+                                    key={index}
+                                    className={`list-group-item m-2 p-3 rounded pe-auto${selected === shop ? 'bg-blue text-bg-danger' : ''}`}
+                                    style={{cursor: 'pointer'}}
+                                    onClick={() => setSelected(shop)}
+                                >
+                                    <h5>{shop.name}</h5>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
 
                 {/* Right column for medications */}
                 <div className="col-md-6">
-                    <MedicationList selectedShop={selected} />
+                    <MedicationList selectedShop={selected}/>
                 </div>
             </div>
         </div>

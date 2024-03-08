@@ -8,11 +8,13 @@ app.get("/api", (req, res ) => {
 const shopRouter = require('./routes/shop');
 const medicationRouter = require('./routes/medications')
 const shoppingCart = require('./routes/shoppingCart')
+const orderRouter = require('./routes/order');
 
 app.use(express.json());
 app.use('/shops',shopRouter)
 app.use('/medications', medicationRouter);
 app.use('/shopcarts', shoppingCart);
+app.use('/orders', orderRouter);
 
 const start = async () => {
     try{
