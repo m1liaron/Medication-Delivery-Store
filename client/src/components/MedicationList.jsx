@@ -1,15 +1,15 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {addToCart} from "../redux/shoppingCartSlice";
-import MedicationItem from "./MedicationItem";
-import {fetchMedication, selectMedication} from "../redux/medicationSlice";
-import SpinnerComponent from "./SpinnerComponent";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import MedicationItem from './MedicationItem';
+import { fetchMedication, selectMedication } from '../redux/medicationSlice';
+import SpinnerComponent from './SpinnerComponent';
+
 const MedicationList = ({ selectedShop }) => {
     const dispatch = useDispatch();
     const medications = useSelector(selectMedication);
 
     useEffect(() => {
-      dispatch(fetchMedication());
+        dispatch(fetchMedication());
     }, []);
 
     const filteredMedications =
@@ -28,7 +28,7 @@ const MedicationList = ({ selectedShop }) => {
                     </li>
                 ))
             ) : (
-                <SpinnerComponent/>
+                <SpinnerComponent />
             )}
         </ul>
     );

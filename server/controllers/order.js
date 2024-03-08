@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const Shop = require('../models/Shop');
 const {StatusCodes} = require('http-status-codes');
 const Order= require("../models/Order");
@@ -16,3 +17,8 @@ const createOrder = async (req, res) => {
 module.exports = {
     createOrder
 }
+=======
+const Order = require('../models/Order');
+const {StatusCodes} = require('http-status-codes');
+
+>>>>>>> 3619f6805d48abcadc2e376aa86122953bef3fce

@@ -18,6 +18,8 @@ const updateMedication = async (req, res) => {
         params: {id}
     } = req;
     try{
+        console.log('Ліки дата =', req.body);
+
 
         const updatedMedication = await Medication.findOneAndUpdate(
             { _id: id },

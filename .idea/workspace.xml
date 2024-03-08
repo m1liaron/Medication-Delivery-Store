@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0880ca7d-668e-440b-8831-c11a9a73a58d" name="Changes" comment="first commit">
-      <changelist_data name="m1liaron" email="" />
+    <list default="true" id="0880ca7d-668e-440b-8831-c11a9a73a58d" name="Changes" comment="Fix bug with amount">
+      <change afterPath="$PROJECT_DIR$/server/ordersDB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/MedicationItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/MedicationItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/Orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/Orders.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-        <option value="JavaScript File" />
         <option value="JSX File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -32,7 +35,21 @@
         <option value="m1liaron" />
       </list>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/server" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "m1liaron"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="2a4f767a-a431-4c3b-aa46-745d0d218132" />
+        <option name="url" value="https://github.com/m1liaron/Medication-Delivery-Store.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,9 +71,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+<<<<<<< HEAD
     "Node.js.DefaultForm.jsx.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+=======
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+>>>>>>> 3619f6805d48abcadc2e376aa86122953bef3fce
     "last_opened_file_path": "D:/Programmers/progrommer/Js_projects/React/medication-delivery-store/server",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -64,7 +87,11 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "vcs.Git",
+<<<<<<< HEAD
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+=======
+    "ts.external.directory.path": "/home/artur/Завантаження/WebStorm-233.14475.40/plugins/javascript-impl/jsLanguageServicesImpl/external",
+>>>>>>> 3619f6805d48abcadc2e376aa86122953bef3fce
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -93,9 +120,55 @@
       <workItem from="1709793350099" duration="34521000" />
       <workItem from="1709836839991" duration="13921000" />
       <workItem from="1709853165259" duration="29000" />
+<<<<<<< HEAD
       <workItem from="1709853201680" duration="2973000" />
       <workItem from="1709901528675" duration="9904000" />
+=======
+      <workItem from="1709853201680" duration="2836000" />
+      <workItem from="1709889783574" duration="11199000" />
+>>>>>>> 3619f6805d48abcadc2e376aa86122953bef3fce
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1709888205560</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709888205560</updated>
+    </task>
+    <task id="LOCAL-00002" summary="remove env">
+      <option name="closed" value="true" />
+      <created>1709888507589</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709888507589</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fix bug with amount">
+      <option name="closed" value="true" />
+      <created>1709899958719</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709899958719</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fix bug with amount">
+      <option name="closed" value="true" />
+      <created>1709899999798</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709899999798</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fix bug with amount">
+      <option name="closed" value="true" />
+      <created>1709900036675</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709900036675</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,5 +180,10 @@
       <path value="$PROJECT_DIR$/client" />
       <path value="$PROJECT_DIR$/server" />
     </ignored-roots>
+    <MESSAGE value="ShopsList, shoppingCart, with redux. Now without backend." />
+    <MESSAGE value="first commit" />
+    <MESSAGE value="remove env" />
+    <MESSAGE value="Fix bug with amount" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug with amount" />
   </component>
 </project>

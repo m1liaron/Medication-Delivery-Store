@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
-const OrderSchema = new mongoose.Schema({
+
+const orderSchema = new mongoose.Schema({
     medications: [
         {
             name: {
                 type: String,
-                required: true
+                    required: true
             },
             price: {
                 type: Number,
@@ -15,6 +16,7 @@ const OrderSchema = new mongoose.Schema({
                 type: Number,
                 required: true
             },
+            // Add any other properties related to medications
         }
     ],
     userName: {
@@ -36,4 +38,4 @@ const OrderSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('Order', OrderSchema);
+module.exports = mongoose.model('Order', orderSchema);
