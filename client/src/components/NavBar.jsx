@@ -21,6 +21,9 @@ const NavBar = () => {
                             <NavLink to={'/cart'} className="nav-link" activeclassname="active-link">
                                 Shopping cart
                             </NavLink>
+                            <NavLink to={'/history'} className="nav-link" activeclassname="active-link">
+                                History
+                            </NavLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

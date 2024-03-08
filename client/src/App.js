@@ -9,7 +9,8 @@ import {
 import {
     ShopPage,
     ShopCartPage,
-    NotFoundPage
+    NotFoundPage,
+    HistoryPage
 } from './pages/index'
 
 import NavBar from "./components/NavBar";
@@ -22,10 +23,15 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <ShopPage/>,
+                errorElement: <NotFoundPage/>
             },
             {
                 path: "/cart",
                 element: <ShopCartPage/>
+            },
+            {
+                path: "/history",
+                element: <HistoryPage/>
             }
         ]
     }

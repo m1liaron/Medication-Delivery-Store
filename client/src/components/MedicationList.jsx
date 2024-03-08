@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import MedicationItem from './MedicationItem';
 import { fetchMedication, selectMedication } from '../redux/medicationSlice';
 import SpinnerComponent from './SpinnerComponent';
-
 const MedicationList = ({ selectedShop }) => {
     const [price, setPrice] = useState(1);
     const [sortedMedications, setSortedMedications] = useState([]);
@@ -43,6 +42,7 @@ const MedicationList = ({ selectedShop }) => {
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
             />
+            <button onClick={() => setPrice(1)}>reset</button>
             {medications ? (
                 sortedMedications.length > 0 ? (
                     sortedMedications.map((medication, medIndex) => (

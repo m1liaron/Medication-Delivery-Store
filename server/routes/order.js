@@ -3,9 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 const {
-    createOrder
+    createOrder, getAllOrders
 } = require('../controllers/order')
 
-router.route('/').post(createOrder)
+router.route('/').post(createOrder).get(getAllOrders);
 
 module.exports = router;

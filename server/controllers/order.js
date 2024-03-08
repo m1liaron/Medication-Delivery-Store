@@ -1,4 +1,3 @@
-const Shop = require('../models/Shop');
 const {StatusCodes} = require('http-status-codes');
 const Order= require("../models/Order");
 
@@ -13,6 +12,17 @@ const createOrder = async (req, res) => {
     }
 }
 
+const getAllOrders = async (req, res) => {
+    try{
+        const orders = await Order.find()
+        res.status(StatusCodes.OK).json(orders);
+    } catch (error){
+        console.error('Error fetching tasks:', error.message);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'Internal Server Error' });
+    }
+}
+
 module.exports = {
-    createOrder
+    createOrder,
+    getAllOrders
 }

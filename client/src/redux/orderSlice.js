@@ -1,5 +1,6 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
+import {fetchMedication} from "./medicationSlice";
 
 export const onSaveOrder = createAsyncThunk(
     'order/save',
@@ -14,6 +15,20 @@ export const onSaveOrder = createAsyncThunk(
     }
 )
 
+export const fetchOrders = createAsyncThunk(
+    'order/fetchOrder',
+    async (data) => {
+        try {
+            const response = await axios.get('/orders');
+            console.log(response)
+            return response.data
+        } catch (error){
+            console.error('Error with saving order: ', error)
+        }
+    }
+)
+
+
 const orderSlice = createSlice({
     name:'orders',
     initialState: {
@@ -23,6 +38,17 @@ const orderSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
+            .addCase(fetchOrders.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(fetchOrders.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.orders = action.payload; // Corrected from state.medications to state.orders
+            })
+            .addCase(fetchOrders.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message;
+            })
             .addCase(onSaveOrder.pending, (state) => {
                 state.status = 'loading'
             })
