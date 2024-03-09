@@ -32,4 +32,4 @@ After install dependencies, let's get started.
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
 ## Database
-![Mongodb](https://img.shields.io/badge/Mongodb-82b74b?style=for-the-badge&logo=Mongodb&logoColor=white)
+![Mongodb](https://img.shields.io/badge/Mongodb-82b74b?style=for-the-badge&logo=Mongodb&logoColor=black)
