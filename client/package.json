@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "proxy": "http://localhost:5000",
   "private": true,
-  "homepage": "https://m1liaron.github.io/Medication-Delivery-Store",
+  "homepage": "https://65eba2ecc5414f315ad2ed42--frolicking-smakager-6aa659.netlify.app",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
