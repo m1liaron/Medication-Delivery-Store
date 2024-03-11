@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const fetchMedication = createAsyncThunk('medication/fetchShops', async () => {
     try {
-        const response = await fetch('/medications');
+        const response = await fetch('https://medication-delivery-store.onrender.com/medications');
         const data = await response.json();
         return data;
     } catch (error) {
@@ -16,7 +16,7 @@ export const fetchMedication = createAsyncThunk('medication/fetchShops', async (
 export const updateMedicationDb = createAsyncThunk('medication/update', async({id, amount, isFavorite = false}) => {
     try {
         console.log('Тепер робимо запит щоб оновити ліки')
-        const response = await axios.put(`/medications/${id}`, {amount, isFavorite});
+        const response = await axios.put(`https://medication-delivery-store.onrender.com/medications/${id}`, {amount, isFavorite});
         console.log('Ось оновлені ліки', response.data)
         return response.data;  // Make sure the server returns the updated cart
     } catch (error){

@@ -5,7 +5,7 @@ export const getAllCarts = createAsyncThunk(
     'cart/getAllCarts',
     async () => {
         try {
-            const response = await axios.get('/shopcarts');
+            const response = await axios.get('https://medication-delivery-store.onrender.com/shopcarts');
             return response.data;
         } catch (error) {
             console.error('Error fetching carts:', error);
@@ -15,7 +15,7 @@ export const getAllCarts = createAsyncThunk(
 
 export const addToCartDB = createAsyncThunk('cart/addToCart', async (data) => {
     try {
-        const response = await axios.post('/shopcarts', data);
+        const response = await axios.post('https://medication-delivery-store.onrender.com/shopcarts', data);
         return response.data;
     } catch (error) {
         console.error('Error adding to cart:', error);
@@ -26,7 +26,7 @@ export const addToCartDB = createAsyncThunk('cart/addToCart', async (data) => {
 export const updateCartDB = createAsyncThunk('cart/updateCart', async (data) => {
     try {
         console.log('Оновлюємо картку в кошику')
-        const response = await axios.put(`/shopcarts/${data.id}`, { amount: data.amount });
+        const response = await axios.put(`https://medication-delivery-store.onrender.com/shopcarts/${data.id}`, { amount: data.amount });
         console.log('Оновлена картка = ', response.data);
         return response.data;  // Make sure the server returns the updated cart
     } catch (error) {
@@ -37,7 +37,7 @@ export const updateCartDB = createAsyncThunk('cart/updateCart', async (data) => 
 
 export const removeCartFromDB = createAsyncThunk('cart/removeCart', async (id) => {
     try {
-        await axios.delete(`/shopcarts/${id}`);
+        await axios.delete(`https://medication-delivery-store.onrender.com/shopcarts/${id}`);
         return id; // Return the ID to remove it from the state
     } catch (error) {
         console.error('Error removing from cart:', error);
@@ -50,7 +50,7 @@ export const deleteAllCarts = createAsyncThunk(
     async() => {
         try{
             console.log('delete all carts')
-            const response = await axios.delete('/shopcarts')
+            const response = await axios.delete('https://medication-delivery-store.onrender.com/shopcarts')
             console.log(response);
             return [];
         } catch (error){

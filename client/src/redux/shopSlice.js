@@ -3,7 +3,7 @@ import shops from '../mock-data.json';
 
 export const fetchShops = createAsyncThunk('shop/fetchShops', async () => {
     try {
-        const response = await fetch('/shops');
+        const response = await fetch('https://medication-delivery-store.onrender.com/shops');
         const data = await response.json();
         return data;
     } catch (error) {
